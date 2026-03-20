@@ -1,0 +1,60 @@
+- hosts: all
+  become: yes
+
+  tasks:
+
+  - name: Install httpd
+    package:
+      name: httpd
+      state: present
+
+  - name: Start httpd service
+    service:
+      name: httpd
+      state: started
+      enabled: yes
+
+  - name: Create webpage
+    copy:
+      dest: /var/www/html/index.html
+      content: "WEBPAGE IS DEPLOYED SUCCESSFULLY\n"
+
+  - name: Allow port 80 in firewall
+    ansible.posix.firewalld:
+      port: 80/tcp
+      state: enabled
+      permanent: yes
+      immediate: yes
+
+  - name: Install Docker (optional)
+    package:
+      name: docker-ce
+      state: present
+
+  - name: Start Docker service
+    service:
+      name: docker
+      state: started
+      enabled: yes
+
+  - name: Install pip for python
+    package:
+      name: python3-pip
+      state: present
+
+  - name: Create folder
+    file:
+      path: /tanu
+      state: directory
+
+  - name: Copy webpage to folder
+    copy:
+      src: /var/www/html/index.html
+      dest: /tanu/
+
+  - name: Allow port 7676 in firewall
+    ansible.posix.firewalld:
+      port: 7676/tcp
+      state: enabled
+      permanent: yes
+      immediate: yes
