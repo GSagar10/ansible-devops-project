@@ -29,16 +29,13 @@ This Ansible playbook automates the following tasks:
 ---
 
 ## 📂 Project Structure
-
-
+```
 ansible-devops-project/
-│
 ├── ansi_docker.yml # Main Ansible Playbook
 ├── hosts # Inventory file
 ├── index.html # Web page content
 └── README.md # Project documentation
-
-
+```
 ---
 
 ## ⚙️ Prerequisites
