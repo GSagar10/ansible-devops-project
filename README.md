@@ -67,6 +67,9 @@ cat hosts
 Run the playbook:
 
 ansible-playbook -i hosts ansi_docker.yml
+
+---
+
 🌐 Access Application
 
 After successful execution:
@@ -78,6 +81,8 @@ http://<target-ip>:80
 or
 
 http://<target-ip>:7676
+
+---
 📌 Features
 
 ✔ Automated Apache setup
@@ -104,4 +109,6 @@ Infrastructure automation
 
 Sagar Gharge
 
-📧 Email: sagar.gharge11491@gmail.com
+📧 Email: sagar.gharge10491@gmail.com
+
+---
